@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boot demo 3</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: "Lato", sans-serif;
+            transition: background-color .5s;
+        }
+        
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+        
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+        
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+            float: right;
+        }
+        
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+        
+        .container1 {
+            width: 100%;
+            height: 700px;
+            background: url(pexels-daan-stevens-939331.jpg) no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        
+        h1 {
+            font-size: 20px;
+            color: whitesmoke;
+            font-weight: bolder;
+            margin-right: 100px;
+        }
+        
+        h2 {
+            font-size: 60px;
+            font-weight: bolder;
+            margin-right: 100px;
+        }
+        
+        #btn1 {
+            margin-right: 100px;
+            border: 2px solid whitesmoke;
+            border-radius: 30px;
+            background-color: white;
+            color: black;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-weight: bolder;
+            font-size: 20px;
+        }
+        
+        .container2 {
+            width: 100%;
+            height: 250px;
+            background-color: rgb(241, 223, 223);
+            padding-left: 200px;
+            padding-right: 200px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        
+        .container4 {
+            width: 100%;
+            height: 70px;
+            background-color: rgb(212, 156, 36);
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        h4 {
+            text-align: center;
+            color: whitesmoke;
+        }
+        
+        .container5 {
+            width: 100%;
+            height: 500px;
+            background-color: rgb(245, 240, 194);
+        }
+        
+        h5 {
+            font-size: 30px;
+            margin-left: 200px;
+            padding-top: 50px;
+        }
+        
+        .card {
+            border: 2px solid white;
+        }
+        
+        .card-body {
+            border: 2px solid none;
+        }
+        
+        .card-title {
+            text-align: start;
+            color: black;
+            font-weight: bolder;
+        }
+        
+        .card-text {
+            text-align: start;
+            color: white;
+            font-size: 15px;
+        }
+        
+        .container6 {
+            width: 100%;
+            height: 500px;
+            background-color: rgb(245, 240, 194);
+        }
+        
+        h6 {
+            font-size: 30px;
+            padding-top: 30px;
+            margin-left: 200px;
+        }
+        
+        .footer {
+            width: 100%;
+            height: 80px;
+            background-color: darkorange;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        #footbtn {
+            border-radius: 20px;
+            background-color: whitesmoke;
+            color: black;
+            padding-right: 50px;
+            padding-left: 50px;
+            margin-left: 200px;
+            display: inline-block;
+        }
+        
+        #footer-p {
+            display: inline-block;
+        }
+        
+        .footer2 {
+            width: 100%;
+            height: 60px;
+            background-color: rgb(236, 203, 178);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Clients</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div id="main">
+        <span style="font-size:50px;cursor:pointer" onclick="openNav()">&#9776; </span>
+    </div>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "250px";
+            document.getElementById("main").style.marginLeft = "250px";
+            document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+            document.getElementById("main").style.marginLeft = "0";
+            document.body.style.backgroundColor = "white";
+        }
+    </script>
+    <div class="container1">
+        <h1>THINKING OF BUYING A HEADPHONE?</h1>
+        <H2>HTML Business <br> Templates</H2>
+        <button id="btn1">Shopping Now</button>
+    </div>
+    <div class="container2">
+        <h3>Find a quality and right headphone not easy</h3>
+        <p><strong> ipsum dolor sit amet</strong> consectetur adipisicing elit. Dolor, necessitatibus assumenda saepe et accusamus omnis hic ipsum incidunt aliquid numquam temporibus neque voluptatibus ab vitae? Similique inventore voluptatem repellendus
+            amet? Commodi obcaecati sit minima corporis repellat earum sunt, perspiciatis temporibus beatae quo? Ipsam sunt voluptatem, vel voluptatibus veniam fugit, facilis laudantium tenetur necessitatibus quisquam repudiandae nam qui adipisci ducimus
+            autem optio earum incidunt deleniti sequi ab magnam?
+        </p>
+    </div>
+    <div class="container4">
+        <h4>Business HTML Template Free Download</h4>
+    </div>
+    <div class="container5">
+        <h5>Hottest Headphones of the Month</h5>
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-4" class=" card " style="width:200px ">
+                    <img class="card-img-top " src="img6.jpeg " alt="Card image " style="width:90% ">
+                    <div class="card-body bg-warning " style="width: 90%">
+                        <h4 class="card-title ">HEADPHONES</h4>
+                        <p class="card-text ">Some example text some example text. John Doe is an architect and engineer</p>
+                    </div>
+                </div>
+                <div class="col-sm-4" class="card" style="width:200px">
+                    <img class="card-img-top" src="img6.jpeg" alt="Card image" style="width:90%">
+                    <div class="card-body bg-warning" style="width: 90%">
+                        <h4 class="card-title">HEADPHONES</h4>
+                        <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4" class=" card " style="width:200px ">
+                    <img class="card-img-top " src="img6.jpeg " alt="Card image " style="width:90% ">
+                    <div class="card-body bg-warning " style="width: 90%">
+                        <h4 class="card-title ">HEADPHONES</h4>
+                        <p class="card-text ">Some example text some example text. John Doe is an architect and engineer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container6">
+        <h6>Meet Our New Headphones</h6>
+        <div class="container">
+            <div class="row">
+                <div class="mt-3 col-sm-3" class=" card " style="width:150px ">
+                    <img class="card-img-top " src="img6.jpeg " alt="Card image " style="width:90% ">
+                </div>
+                <div class="mt-3 col-sm-3" class=" card " style="width:150px ">
+                    <img class="card-img-top " src="img6.jpeg " alt="Card image " style="width:90% ">
+                </div>
+                <div class="mt-3 col-sm-3" class=" card " style="width:150px ">
+                    <img class="card-img-top " src="img6.jpeg " alt="Card image " style="width:90% ">
+                </div>
+                <div class="mt-3 col-sm-3" class=" card " style="width:150px ">
+                    <img class="card-img-top " src="img6.jpeg " alt="Card image " style="width:90% ">
+                </div>
+                <div class="mt-3 col-sm-3" class=" card " style="width:150px ">
+                    <img class="card-img-top " src="img6.jpeg " alt="Card image " style="width:90% ">
+                </div>
+                <div class="mt-3 col-sm-3" class=" card " style="width:150px ">
+                    <img class="card-img-top " src="img6.jpeg " alt="Card image " style="width:90% ">
+                </div>
+                <div class=" mt-3 col-sm-3" class=" card " style="width:150px ">
+                    <img class="card-img-top " src="img6.jpeg " alt="Card image " style="width:90% ">
+                </div>
+                <div class="mt-3 col-sm-3" class=" card " style="width:150px ">
+                    <img class="card-img-top " src="img6.jpeg " alt="Card image " style="width:90% ">
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <p id="footer-p">Hurry Up offers are Limited!!!</p>
+        <P id="footer-p">Like it? Pre-Order get Discount</P>
+        <button id="footbtn">Learn More</button>
+    </div>
+    <div class="footer2">
+        <p>Why do you have to buy headphones only for us?</p>
+    </div>
+
+</body>
+
+</html>
